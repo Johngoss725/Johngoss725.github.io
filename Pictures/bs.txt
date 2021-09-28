@@ -1,0 +1,31 @@
+        var i = 0; 
+        var images = [];
+        var captions=[];
+        var time = 3000;
+        //image list
+        images[0]="Pictures/Main_InterfaceCMSTool.png"
+        images[1]="Pictures/Error_Log 1.png"
+        images[2]="Pictures/Display Log.png"
+        captions[0]="Search or scroll through the error codes."
+        captions[1]="Create Error Logs."
+        captions[2]="View User Made Error Logs."
+        function changeIMG(){
+            document.slide.src=images[i];
+            document.getElementById("caption").innerHTML=captions[i]
+
+            if(i < images.length-1){
+                i++;
+            }else{
+                i=0;
+            }
+
+            setTimeout("changeIMG()",time);
+
+        }
+        window.onload=changeIMG;
+
+
+        This was a bad attemp at a slideshow. I treid syncing it with a fade in fade out css animation to no aval.
+        Looked like shit. 
+        Im going to use a slider instead and animate the text.
+        

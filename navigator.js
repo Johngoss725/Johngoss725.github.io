@@ -14,7 +14,7 @@ const workObj=[{
     subImage:"./Mixamo.png",
     par1:`
     I create video games with the Godot Game engine. 
-    I create the models for the games in Blender.
+    The models are created in Blender.
     I use Adobe's Mixamo to rig the blender models with animations for use in Godot. 
     
     
@@ -30,7 +30,7 @@ const workObj=[{
     image:"",
     subImage:"./AGE.png",
     par1:`
-    I wanted to work with tools like c-panel and understand more about internet architecture. I created 
+    I wanted to work with tools like c-panel and understand more about internet architecture. I recentley created 
     Averagegodotenjoyer.com as a way to further those goals and create more resources for the Godot community .       
     `,
     par2:"",
@@ -57,13 +57,11 @@ const workObj=[{
 
 
 function clearScreen(){
-    if (panel.children.length>1) {
-    console.log(panel.lastChild);
-    panel.lastChild.remove();
+    if (panel.childElementCount>0){
+        panel.lastChild.remove();
     }
-    else{
-        console.log("nothing");
-    }
+
+    
 }
 
 function openAboutMe(){
@@ -99,103 +97,68 @@ function openAboutMe(){
 // deactivet the buttons after we press them or this wont work
 function openWork(){
     clearScreen()
-    let internalState = "gdot";
-    //we will create4 state for each of our projects 
+     
     if(state !== "work"){
-        state="work";
-        
-        let container = document.createElement("div");
-        container.classList.add("work");
-        let list = document.createElement("ul");
-        list.classList.add("workList")
-        let header = document.createElement("h3");
-        
-        if (internalState==="godot"){
-            header.classList.add("workHeader")
-            header.innerText = workObj[0]["heading"]
-        }
-        else{
-            header.classList.add("workHeader")
-            header.innerText = workObj[1]["heading"]
-        }
-
-        let useL = document.createElement("a");
-        useL.classList.add("workLink");
-        useL.href = "https://github.com/Johngoss725";
-        useL.innerText=" My GitHub"
-       // linkHolder.append(useL); 
-
-        let img = document.createElement("img");
-        img.src = workObj[0]["image"];
-        img.classList.add("selfie")
-    
-        
-        let item = document.createElement("li");
-        item.classList.add("workItem")
-
+        state = "work";
+        let container=document.createElement("div");
+        container.classList.add("work")
+        // just a github link and our top bar 
         let frame = document.createElement("div");
         frame.classList.add("workFrame")
-        
         //frame.append(img);
-        frame.append(useL);
-        item.append(frame);
+        container.append(frame);
+
 
         for(let i=0; i < workObj.length; i++){  
 
-            //Smaller Header
+            //Project Header
             let subHeader = document.createElement("h4");
             subHeader.innerText = workObj[i]["subHeading"];
-          //  let subImage = document.createElement("img");
-          //  subImage.classList.add("workSubImg");
-          //  subImage.src=workObj[i]["subImage"];
-            
             subHeader.classList.add("workSubHeader")
+            
+            //Project Paragraph
             let p = document.createElement("p");
             p.innerText = workObj[i]["par1"];
             p.classList.add("workPar");
             let linkHolder = document.createElement("div");
             linkHolder.classList.add("workLinkHolder");
 
+
             //Creating our links dynamically for eah list item
             if(workObj[i]["links"].length){
-            
-                for(let j = 0; j < workObj[i]["links"].length; j++){
-                    if (workObj[i]["links"][j]==="https://github.com/Johngoss725"){
-                        let useL = document.createElement("a");
-                        useL.classList.add("workLink");
-                        useL.href = workObj[i]["links"][j];
-                        useL.innerText="GitHub"
-                       // linkHolder.append(useL);                    
-                    }
-                    else{
-                        let useF = document.createElement("iframe");
-                        useF.classList.add("vids");
-                        useF.src = workObj[i]["links"][j];
-                        linkHolder.append(useF);
-                    }
-                    
-
-
-                }
-
-
+                let useF = document.createElement("iframe");
+                useF.classList.add("vids");
+                useF.src = workObj[i]["links"][0];
+                linkHolder.append(useF);
             }
-            
-            item.append(subHeader);
+            container.append(subHeader);
            // item.append(subImage);
-            item.append(p);
-            item.append(linkHolder);
-    
-            
-            
-            
+            container.append(p);
+            container.append(linkHolder);
+            if(i===0){
+                let gLink = document.createElement("a");
+                gLink.classList.add("test")
+                gLink.innerText="Mixamo Github Script"
+                gLink.href="https://github.com/Johngoss725/Mixamo-To-Godot";
+                container.append(gLink)
+            } 
+            if(i===1){
+                let gLink = document.createElement("a");
+                gLink.classList.add("test")
+                gLink.innerText="Averagegodotenjoyer.com"
+                gLink.href="https://averagegodotenjoyer.com";
+                container.append(gLink)
+            }
+            if(i===2){
+                let gLink = document.createElement("a");
+                gLink.classList.add("test")
+                gLink.innerText="Parser Script / Spooky Castle"
+                gLink.href="https://github.com/Johngoss725/SpookyCastleProject";
+                container.append(gLink)
+            }      
         }
-        list.append(item);
-        container.append(list);
-
         panel.append(container);
     }
-
 }
 
 

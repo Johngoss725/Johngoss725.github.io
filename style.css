@@ -1,0 +1,149 @@
+body{
+    margin:0;
+}
+h1{
+    color: #57aef1;
+
+}
+h2{
+    color: #59adee;
+}
+header{
+    margin-left: 3em;
+    margin-top: 2em;
+}
+canvas{
+    position: fixed;
+    top:0;
+    left:0;
+    
+}
+main{
+    position: absolute;
+    width: 100%;
+
+}
+button{
+    padding: 1em;
+    border:0.1em solid #59adee;
+    margin: 4em;
+    border-radius: 3em;
+    background: rgba(0, 0, 0, 0);
+    color: #59adee;
+}
+button:hover{
+    color:rgb(100, 238, 20);
+    border:0.1em solid #5cee08;
+    background:#59adee3b;
+
+}
+p{
+    color: #59adee;
+}
+.panel{
+    font-family: 'Play', sans-serif;
+    margin-top: 6em;
+    display: flex;
+    height: 80%;
+}
+.nav{
+    flex-grow: 1;
+}
+.aboutMe{
+    margin-right: 5em;
+    display: flex;
+    flex-grow: 4;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4em;
+    background-color: rgba(0, 0, 0, 0.795);
+    border: 0.1em  #57aef1 solid;
+    margin-right: em;
+}
+.work{
+    margin-bottom: 5em;
+    margin-right: 5em;
+    border:0.1em #57aef1 solid;
+    display: flex;
+    flex-grow: 4;
+    justify-content: center;
+    border-radius: 4em;
+    background-color: rgba(0, 0, 0, 0.795);
+
+}
+.skills{
+    background-color: rgba(0, 0, 0, 0.795);
+    margin-right: 5em;
+    flex-grow: 4;
+    color: #57aef1;
+    margin-right:5em;
+    border: 0.1em #57aef1 solid;
+    border-radius: 2em;
+
+}
+.skillHeader{
+    text-align: center;
+}
+.skillList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 4em;
+    text-align: center;
+}
+
+.workFrame{
+    margin-left: 0;
+    padding: 0;
+    margin-top: 3em;
+    text-align: center;
+    color:steelblue;
+
+}
+
+.workHeader{
+    align-self: center;
+}
+.workSubHeader{
+    text-align: center;
+    color:#57aef1;
+    margin-top:3em;
+    font-size: xx-large;
+}
+.workPar{
+}
+.workLinkHolder{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+}
+.workLink{
+    padding: 0;
+    margin:0;
+    color: green;
+    text-decoration:none;
+    font-size: large;
+
+}
+.workSubImg{
+    border: 0.1em rgb(123, 255, 0) solid;
+    border-radius: 1em;
+    width:700px;
+}
+.selfie{
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 6em;
+}
+.vids{
+    display: block;
+    padding: 0;
+
+    width: 100%;
+    height: 500px;
+
+}

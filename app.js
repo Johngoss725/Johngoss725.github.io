@@ -17,6 +17,30 @@ scene.add( light );
 const Bloader = new THREE.TextureLoader();
 const bgTexture = Bloader.load('./trty.jpg');
 scene.background = bgTexture;
+window.flight_diry = 0;
+window.flight_dirx = 0;
+//Movement 
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 37) {
+        //alert('Left was pressed');
+        flight_dirx=-1
+    }
+    else if(event.keyCode == 39) {
+        //alert('Right was pressed');
+        flight_dirx=1
+    }
+});
+document.addEventListener('keyup', function(event) {
+    if(event.keyCode == 37) {
+      //  alert('Left was pressed');
+        flight_dirx=0
+    }
+    else if(event.keyCode == 39) {
+        //alert('Right was pressed');
+        flight_dirx=0
+    }
+});
+
 
 // position camera
 camera.position.z = 400;
@@ -52,6 +76,24 @@ spawnCity()
 addCity()
 
 function animate() {
+    if (flight_dirx){
+        if (camera.position.x >= 500){
+            camera.position.x = 500
+        }
+        if (camera.position.x < -500){
+            camera.position.x = -500
+        }
+        camera.position.x += flight_dirx
+    }
+    if (flight_diry){
+        if (camera.position.y >= 500){
+            camera.position.y = 500
+        }
+        if (camera.position.y < 20){
+            camera.position.y = 20
+        }
+        camera.position.y += flight_diry
+    }
     if(meshArray.length){
         for(let i=0;i<meshArray.length;i++){
            meshArray[i].position.z += 1

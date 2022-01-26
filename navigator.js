@@ -8,6 +8,17 @@ let AGE = "https://Averagegodotenjoyer.com"
 const panel = document.querySelector(".panel");
 
 const workObj=[{
+    heading:"APiAdventures",
+    subHeading: "Open weather API forecast built with node.js",
+    image:"",
+    subImage:"",
+    par1:`I created this app with node.js using a server to make the calls to the Open Weather API. 
+    I deployed it to heroku to have an easy place to display it. The API  key is stored in the enviroment provided by heroku.`,
+    par2:"",
+    links:["https://gossweather.herokuapp.com/"]
+
+
+},{
     heading:"Godot Game Engine Projects",
     subHeading:"Python Animation Scripts",
     image:"./Myself.jpeg",
@@ -54,9 +65,74 @@ const workObj=[{
 
 }
 ];
+function flyAround(){
+    clearScreen()
+    let container = document.createElement("div");
+    container.classList.add("flying");
+
+    let outerHolder = document.createElement("div");
+    outerHolder.classList.add("outerHolder");
+    container.append(outerHolder);
+
+    let upButton = document.createElement("button");
+    upButton.classList.add("upButton");
+    outerHolder.append(upButton);
+
+    let upIcon = document.createElement("i");
+    upIcon.classList.add("fas", "fa-arrow-up");
+    upButton.append(upIcon);
+    upButton.addEventListener("click",()=> window.flight_diry=1)
+
+    let innerHolder =document.createElement("div");
+    innerHolder.classList.add("innerHolder");
+    outerHolder.append(innerHolder);
+
+    let leftButton = document.createElement("button");
+    leftButton.classList.add("leftButton");
+    innerHolder.append(leftButton);
+    
+    let brakeButton = document.createElement("button");
+    brakeButton.classList.add("brakeButton");
+    innerHolder.append(brakeButton)
+    brakeButton.addEventListener("click",()=> {
+        window.flight_diry = 0;
+        window.flight_dirx = 0;
+        })
+    
+    let brakeIcon = document.createElement("i");
+    brakeButton.classList.add("far", "fa-hand-paper"); 
+    brakeButton.append(brakeIcon)
+
+    let leftIcon = document.createElement("i");
+    leftIcon.classList.add("fas" ,"fa-arrow-left");
+    leftButton.append(leftIcon);
+    leftButton.addEventListener("click",()=> window.flight_dirx=-1)
+    
+    let rightButton = document.createElement("button");
+    rightButton.classList.add("rightButton");
+    innerHolder.append(rightButton);
+
+    let rightIcon = document.createElement("i");
+    rightIcon.classList.add("fas", "fa-arrow-right");
+    rightButton.append(rightIcon);
+    rightButton.addEventListener("click",()=> window.flight_dirx=1)
+    
+
+    let bottomButton = document.createElement("button");
+    bottomButton.classList.add("bottomButton");
+    outerHolder.append(bottomButton);
+
+    let downIcon = document.createElement("i");
+    downIcon.classList.add("fas", "fa-arrow-down");
+    bottomButton.append(downIcon);
+    bottomButton.addEventListener("click",()=> window.flight_diry=-1)
+
+    panel.append(container);
+}
 
 
 function clearScreen(){
+    inFlight=false;
     if (panel.childElementCount>0){
         panel.lastChild.remove();
     }
@@ -135,21 +211,29 @@ function openWork(){
            // item.append(subImage);
             container.append(p);
             container.append(linkHolder);
-            if(i===0){
+            if (i==0){
+                let gLink = document.createElement("a");
+                gLink.classList.add("test")
+                gLink.innerText="Heroku Hosted Weather App"
+                gLink.href="https://gossweather.herokuapp.com/";
+                container.append(gLink)
+            }
+            
+            if(i===1){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Mixamo Github Script"
                 gLink.href="https://github.com/Johngoss725/Mixamo-To-Godot";
                 container.append(gLink)
             } 
-            if(i===1){
+            if(i===2){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Averagegodotenjoyer.com"
                 gLink.href="https://averagegodotenjoyer.com";
                 container.append(gLink)
             }
-            if(i===2){
+            if(i===3){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Parser Script / Spooky Castle"
@@ -168,6 +252,7 @@ function openSkills(){
         state = "skills"
         let Skills = [
             "javaScript",
+            "node.js",
             "HTML",
             "CSS",
             "Python",

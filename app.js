@@ -14,34 +14,12 @@ const light = new THREE.AmbientLight( 0x404040 ); // soft white light
 scene.add( light );
 
 //add background
-const Bloader = new THREE.TextureLoader();
-const bgTexture = Bloader.load('./trty.jpg');
-scene.background = bgTexture;
+//const Bloader = new THREE.TextureLoader();
+//const bgTexture = Bloader.load('./trty.jpg');
+//scene.background = bgTexture;
 window.flight_diry = 0;
 window.flight_dirx = 0;
 //Movement 
-document.addEventListener('keydown', function(event) {
-    if(event.keyCode == 37) {
-        //alert('Left was pressed');
-        flight_dirx=-1
-    }
-    else if(event.keyCode == 39) {
-        //alert('Right was pressed');
-        flight_dirx=1
-    }
-});
-document.addEventListener('keyup', function(event) {
-    if(event.keyCode == 37) {
-      //  alert('Left was pressed');
-        flight_dirx=0
-    }
-    else if(event.keyCode == 39) {
-        //alert('Right was pressed');
-        flight_dirx=0
-    }
-});
-
-
 // position camera
 camera.position.z = 400;
 camera.position.y = 150;
@@ -72,8 +50,25 @@ function addCity(){
 
 }
 
-spawnCity()
-addCity()
+function addMoon(){
+
+    loader.load("Moon.glb", function(gltf){
+        let model = gltf.scene
+        scene.add(model)
+
+        model.position.x=100
+        model.position.y=300
+        model.position.z=-300
+
+    })
+
+}
+const moonLight = new THREE.PointLight( "#ffecb", 1, 400 );
+moonLight.position.set( 100, 300, 0 );
+scene.add( moonLight );
+addMoon();
+spawnCity();
+addCity();
 
 function animate() {
     if (flight_dirx){

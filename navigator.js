@@ -8,6 +8,17 @@ let AGE = "https://Averagegodotenjoyer.com"
 const panel = document.querySelector(".panel");
 
 const workObj=[{
+        heading:"Flask App",
+        subHeading: "Graphical Interface for Error Log Codes made with flask",
+        image:"",
+        subImage:"",
+        par1:`I created this app using flask and SQL-Alchemy. It is a graphical interface for displaying error codes from a database.
+        Users can also create accounts and genrate error logs of their own. The database used is SQLite.`,
+        par2:"",
+        links:["https://error-code-app.herokuapp.com/"]
+    
+    
+},{
     heading:"APiAdventures",
     subHeading: "Open weather API forecast built with node.js",
     image:"",
@@ -45,7 +56,7 @@ const workObj=[{
     Averagegodotenjoyer.com as a way to further those goals and create more resources for the Godot community .       
     `,
     par2:"",
-    links:["https://averagegodotenjoyer.com"]
+    links:["https://averagegodotenjoyer.com/"]
 
 },{
     heading:"Godot Game Engine Projects",
@@ -179,10 +190,6 @@ function openWork(){
         let container=document.createElement("div");
         container.classList.add("work")
         // just a github link and our top bar 
-        let frame = document.createElement("div");
-        frame.classList.add("workFrame")
-        //frame.append(img);
-        container.append(frame);
 
 
         for(let i=0; i < workObj.length; i++){  
@@ -207,33 +214,53 @@ function openWork(){
                 useF.src = workObj[i]["links"][0];
                 linkHolder.append(useF);
             }
+
             container.append(subHeader);
            // item.append(subImage);
             container.append(p);
             container.append(linkHolder);
-            if (i==0){
+            if(i===0){
+                let gLink = document.createElement("a");
+                gLink.classList.add("test")
+                gLink.innerText="Heroku Hosted Flask App"
+                gLink.href="https://error-code-app.herokuapp.com/";
+                container.append(gLink)
+
+                let gLink2 = document.createElement("a");
+                gLink2.classList.add("test")
+                gLink2.innerText="Github Repository Link"
+                gLink2.href="https://github.com/Johngoss725/MachineErrorTool";
+                container.append(gLink2)
+            }
+            if(i===1){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Heroku Hosted Weather App"
                 gLink.href="https://gossweather.herokuapp.com/";
                 container.append(gLink)
+
+                let gLink2 = document.createElement("a");
+                gLink2.classList.add("test")
+                gLink2.innerText="Github Repository Link"
+                gLink2.href="https://github.com/Johngoss725/WeatherAppFun";
+                container.append(gLink2)
             }
             
-            if(i===1){
+            if(i===2){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Mixamo Github Script"
                 gLink.href="https://github.com/Johngoss725/Mixamo-To-Godot";
                 container.append(gLink)
             } 
-            if(i===2){
+            if(i===3){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Averagegodotenjoyer.com"
                 gLink.href="https://averagegodotenjoyer.com";
                 container.append(gLink)
             }
-            if(i===3){
+            if(i===4){
                 let gLink = document.createElement("a");
                 gLink.classList.add("test")
                 gLink.innerText="Parser Script / Spooky Castle"
@@ -253,12 +280,13 @@ function openSkills(){
         let Skills = [
             "javaScript",
             "node.js",
+            "flask",
             "HTML",
             "CSS",
             "Python",
+            "SQL",
             "Game Development",
             "3D Modeling / Blender",
-            "SQL",
             "API Usage",
             "Industrial Equipment Operation"
         ];
